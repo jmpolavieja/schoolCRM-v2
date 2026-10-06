@@ -1,0 +1,14 @@
+<ul>
+  @for (item of itemsMenu; track $index) {
+    @if (item === 'Configuracion' && userRol === 'admin') {
+      <li>{{ item }}</li>
+    }
+    @else if (item !== 'Configuracion') {
+      <li>{{ item }}</li>
+    }
+  }
+  <button (click)="userRol = userRol === 'admin' ? 'user' : 'admin'">
+    Cambiar rol a {{ userRol === 'admin' ? 'user' : 'admin' }}
+  </button>
+  <p>Bienvenido {{ userRol }}</p>
+</ul>
